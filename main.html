@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -9,8 +8,22 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
+			// Convert strings to numbers
+			arr = arr.map(Number);
+
+			// Remove duplicates
+			const uniqueArr = [...new Set(arr)];
+
+			// If not enough unique values, return -Infinity
+			if (uniqueArr.length < 2) {
+				return -Infinity;
+			}
+
+			// Sort in descending order
+			uniqueArr.sort((a, b) => b - a);
+
+			// Return second highest
+			return uniqueArr[1];
 		}
 
 		function Main() {
@@ -24,9 +37,7 @@
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
-
+	<script type="text/javascript" src="./script.js"></script>
 </body>
 
 </html>
